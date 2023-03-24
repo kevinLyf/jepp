@@ -9,6 +9,9 @@ const menuBtn = document.getElementById("menu");
 const closeMenuBtn = document.getElementById("closeMenuBtn");
 const balanceDayElement = document.getElementById("balanceDay");
 const balanceDayLocalStorage = localStorage.getItem("balanceDay");
+const kitSelect = document.getElementById("kit");
+const kitPayment = document.getElementById("paymentKit");
+const kitCreate = document.getElementById("kitCreate");
 let balanceDay = balanceDayLocalStorage;
 let type = document.getElementById("onFire");
 
@@ -21,13 +24,12 @@ if (!localStorage.getItem("index")) {
   window.location.reload();
 }
 
-if(!balanceDayLocalStorage) {
+if (!balanceDayLocalStorage) {
   localStorage.setItem("balanceDay", 0);
   window.location.reload();
 }
 
 balanceDayElement.innerHTML = balanceDay;
-
 
 const indexLocalStorage = Number(localStorage.getItem("index"));
 let index = indexLocalStorage;
@@ -123,6 +125,70 @@ createBtn.addEventListener("click", (e) => {
   );
 
   balanceDay = (Number(balanceDay) + Number(value)).toFixed(2);
+
+  localStorage.setItem("balanceDay", balanceDay);
+
+  balanceDayElement.innerHTML = balanceDay;
+  index++;
+  localStorage.setItem("index", index);
+});
+
+kitCreate.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const date = new Date().toLocaleTimeString();
+  const row = document.createElement("tr");
+
+  const td1 = document.createElement("td");
+  const td2 = document.createElement("td");
+  const td3 = document.createElement("td");
+  const td4 = document.createElement("td");
+  const td5 = document.createElement("td");
+
+  td1.innerHTML = kitSelect.value;
+  td2.innerHTML = kitPayment.value;
+  td3.innerHTML =
+    kitSelect.value === "1 Óleo + 1 Esfoliante  " ? "49.99" : "70.00";
+  td4.innerHTML = JSON.parse(localStorage.getItem("CurrentSeller")).name;
+  td5.innerHTML = date;
+
+  td1.setAttribute("title", kitSelect.value);
+  td2.setAttribute("title", kitPayment.value);
+  td3.setAttribute(
+    "title",
+    kitSelect.value === "1 Óleo + 1 Esfoliante  " ? "49.99" : "70.00"
+  );
+  td4.setAttribute(
+    "title",
+    JSON.parse(localStorage.getItem("CurrentSeller")).name
+  );
+  td5.setAttribute("title", date);
+
+  row.appendChild(td1);
+  row.appendChild(td2);
+  row.appendChild(td3);
+  row.appendChild(td4);
+  row.appendChild(td5);
+
+  productsSoldWrapper.appendChild(row);
+
+  const newProductSold = {
+    name: kitSelect.value,
+    payment: kitPayment.value,
+    value: kitSelect.value === "1 Óleo + 1 Esfoliante " ? "49.99" : "70.00",
+    seller: JSON.parse(localStorage.getItem("CurrentSeller")).name,
+    time: date,
+  };
+
+  localStorage.setItem(
+    `productSold${index - 1}`,
+    JSON.stringify(newProductSold)
+  );
+
+  balanceDay = (
+    Number(balanceDay) +
+    Number(kitSelect.value === "1 Óleo + 1 Esfoliante " ? "49.99" : "70.00")
+  ).toFixed(2);
 
   localStorage.setItem("balanceDay", balanceDay);
 
