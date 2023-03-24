@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-primary: #fbe3cd;
+  --button: #b293bf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 
+===============================
+            HEADER
+===============================
+*/
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  width: 100%;
+  height: 4.2rem;
+  border-bottom: 2px solid #DdDdDd;
+
+}
+
+.logo p{
+    white-space: nowrap;
+    font-size: 19pt;
+    color: #ab8ab9;
+}
+
+.logo p span {
+    color: #5da886;
+}
+
+.navbar {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.navbar a {
+  color: #5a5a5a;
+}
+
+/* 
+===============================
+            MAIN
+===============================
+*/
+
+.main {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.main section {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.main section:first-child h3 {
+    font-size: 28pt;
+    font-family: "Poppins", sans-serif;
+}
+
+.main form {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.main form label {
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 18pt;
+}
+
+.main form label select {
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  padding: 0.6rem;
+  cursor: pointer;
+  font-size: 11pt;
+}
+
+
+
+.main form button {
+  background-color: var(--button);
+  border-radius: 5px;
+  width: 5rem;
+  height: 2.5rem;
+  align-self: flex-end;
+  font-size: 13pt;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.main form button:hover {
+    transition: all .2s ease-in-out;
+    background-color: #a07cb0;
+}
+
+table {
+  width: 100%;
+  height: 600px;
+  border-collapse: collapse;
+}
+
+thead th,
+tbody td {
+  padding: 10px;
+  text-align: left;
+}
+
+tbody td:hover{
+    transition: all .2s ease-out;
+    background-color: rgb(228, 228, 228);
+}
+
+tbody {
+  border: 2px solid #dddddd;
+}
+
+thead th {
+  font-weight: bold;
+  border: 2px solid #dddddd;
+  border-bottom: none;
+}
+
+tbody {
+  display: block;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

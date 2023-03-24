@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/images/logo.png">
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Áster Nature</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <a href="./index.html">
+          <p>aster <span>nature</span></p>
+        </a>
+      </div>
+      <nav>
+        <ul class="navbar">
+          <li>
+            <a href="./index.html"> Home </a>
+            <a href="./pages/config.html"> Configuração </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+      <main class="main">
+        <section>
+          <h3>Cadastrar Venda</h3>
+
+          <form>
+            <label>
+              Produto:
+              <select name="product" id="productSelect">
+                <option value="Óleo">Óleo</option>
+                <option value="Esfoliante">Esfoliante</option>
+              </select>
+            </label>
+
+            <label>
+              Forma de pagamento:
+              <select name="method" id="payment">
+                <option value="Pix">Pix</option>
+                <option value="Cartão">Cartão</option>
+                <option value="Dinheiro">Dinheiro</option>
+              </select>
+            </label>
+
+            <button id="create">Criar</button>
+          </form>
+        </section>
+
+        <section >
+          <table>
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Pagamento</th>
+                <th>Valor</th>
+                <th>Vendedor</th>
+                <th>Horário</th>
+              </tr>
+            </thead>
+            <tbody id="productsSoldWrapper">
+            
+            </tbody>
+          </table>
+        </section>
+      </main>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

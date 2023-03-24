@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg-primary: #fbe3cd;
+  --button: #b293bf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* 
+===============================
+            HEADER
+===============================
+*/
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  width: 100%;
+  height: 4.2rem;
+  border-bottom: 2px solid #DdDdDd;
+
+}
+
+.logo p{
+    font-size: 19pt;
+    color: #ab8ab9;
+    white-space: nowrap;
+}
+
+.logo p span {
+    color: #5da886;
+}
+
+.navbar {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.navbar a {
+  color: #5a5a5a;
+}
+
+/*
+===============================
+            MAIN
+===============================
+*/
+
+main {
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+main form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 17pt;
+    gap: .4rem;
+}
+
+main input {
+    border: 1px solid #DdDdDd;
+    border-radius: 5px;
+    padding: .8rem 2.3rem;
+    font-size: 12pt;
+    background-image: url("../assets/images/profile.png");
+    background-position: 10px;
+    background-repeat: no-repeat;
+    background-size: 18px;
+}
+
+main form button {
+    border-radius: 5px;
+    background-color: var(--button);
+    width: 100%;
+    height: 2.6rem;
+    margin-top: .8rem;
+    font-size: 12pt;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+main form button:hover {
+    transition: all .2s ease-in-out;
+    background-color: #a07cb0;
+}
