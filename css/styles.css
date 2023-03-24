@@ -150,7 +150,6 @@ body {
 table {
   width: 100%;
   border-collapse: collapse;
-
 }
 
 thead th,
@@ -182,7 +181,7 @@ thead th {
 
 tbody {
   display: block;
-  max-height: 450px;
+  max-height: 350px;
   overflow-y: scroll;
 }
 
