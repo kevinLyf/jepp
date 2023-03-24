@@ -19,7 +19,12 @@
         <ul class="navbar">
           <li>
             <a href="../index.html"> Home </a>
+          </li>
+          <li>
             <a href="./config.html"> Configuração </a>
+          </li>
+          <li class="menu">
+            <img id="menu" src="../assets/images/menu.png" alt="Menu">
           </li>
         </ul>
       </nav>
@@ -29,11 +34,24 @@
       <form>
         <label>
           Vendedor Atual:
-          <input type="text" id="setSeller" />
+          <input type="text" id="setSeller" placeholder="Nome" />
         </label>
         <button id="setSellerBtn">Definir Vendedor</button>
       </form>
     </main>
+
+    <aside class="asideMenu" id="asideMenu">
+      <button id="closeMenuBtn" class="closeMenuBtn">&times</button>
+      <ul>
+        <li>
+          <a href="../index.html"> Home </a>
+        </li>
+        <li>
+          <a href="./config.html"> Configuração </a>
+        </li>
+      </ul>
+      
+    </aside>
 
     <script src="../js/config.js"></script>
   </body>

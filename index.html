@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./assets/images/logo.png">
+    <link rel="icon" href="./assets/images/logo.png" />
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Áster Nature</title>
   </head>
@@ -19,55 +19,84 @@
         <ul class="navbar">
           <li>
             <a href="./index.html"> Home </a>
+          </li>
+          <li>
             <a href="./pages/config.html"> Configuração </a>
+          </li>
+          <li class="menu">
+            <img id="menu" src="./assets/images/menu.png" alt="Menu">
           </li>
         </ul>
       </nav>
     </header>
 
-      <main class="main">
-        <section>
-          <h3>Cadastrar Venda</h3>
+    <main class="main">
+      <section>
+        <h3>Cadastrar Venda</h3>
 
-          <form>
-            <label>
-              Produto:
-              <select name="product" id="productSelect">
-                <option value="Óleo">Óleo</option>
-                <option value="Esfoliante">Esfoliante</option>
-              </select>
-            </label>
+        <form>
+          <label>
+            Produto:
+            <select name="product" id="productSelect">
+              <option value="Óleo">Óleo</option>
+              <option value="Esfoliante">Esfoliante</option>
+            </select>
+          </label>
 
-            <label>
-              Forma de pagamento:
-              <select name="method" id="payment">
-                <option value="Pix">Pix</option>
-                <option value="Cartão">Cartão</option>
-                <option value="Dinheiro">Dinheiro</option>
-              </select>
-            </label>
+          <label>
+            Forma de pagamento:
+            <select name="method" id="payment">
+              <option value="Pix">Pix</option>
+              <option value="Cartão">Cartão</option>
+              <option value="Dinheiro">Dinheiro</option>
+            </select>
+          </label>
+          <label>
+            Queima de estoque:
+            <select name="fire" id="onFire">
+              <option value="Sim">Sim</option>
+              <option value="Não" selected>Não</option>
+            </select>
+          </label>
 
-            <button id="create">Criar</button>
-          </form>
-        </section>
+          <button id="create">Criar</button>
+        </form>
+      </section>
 
-        <section >
-          <table>
-            <thead>
-              <tr>
-                <th>Produto</th>
-                <th>Pagamento</th>
-                <th>Valor</th>
-                <th>Vendedor</th>
-                <th>Horário</th>
-              </tr>
-            </thead>
-            <tbody id="productsSoldWrapper">
-            
-            </tbody>
-          </table>
-        </section>
-      </main>
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th title="Produto">Produto</th>
+              <th title="Pagamento">Pagamento</th>
+              <th title="Valor">Valor</th>
+              <th title="Vendedor">Vendedor</th>
+              <th title="Horário">Horário</th>
+            </tr>
+          </thead>
+          <tbody id="productsSoldWrapper">
+
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer>
+      <p>Saldo do dia: R$<span id="balanceDay">0</span></p>
+    </footer>
+
+    <aside class="asideMenu" id="asideMenu">
+      <button id="closeMenuBtn" class="closeMenuBtn">&times</button>
+      <ul>
+        <li>
+          <a href="./index.html"> Home </a>
+        </li>
+        <li>
+          <a href="./pages/config.html"> Configuração </a>
+        </li>
+      </ul>
+      
+    </aside>
     <script src="./js/main.js"></script>
   </body>
 </html>

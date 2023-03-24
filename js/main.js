@@ -4,11 +4,16 @@ const createBtn = document.getElementById("create");
 const productsSoldWrapper = document.getElementById("productsSoldWrapper");
 const currentSeller = document.getElementById("currentSeller");
 const startTime = document.getElementById("startTime");
+const asideMenu = document.getElementById("asideMenu");
+const menuBtn = document.getElementById("menu");
+const closeMenuBtn = document.getElementById("closeMenuBtn");
+const balanceDayElement = document.getElementById("balanceDay");
+const balanceDayLocalStorage = localStorage.getItem("balanceDay");
+let balanceDay = balanceDayLocalStorage;
+let type = document.getElementById("onFire");
 
-console.log(!JSON.parse(localStorage.getItem("CurrentSeller")))
-
-if(!JSON.parse(localStorage.getItem("CurrentSeller"))){
-  window.location.href = "./pages/config.html"
+if (!JSON.parse(localStorage.getItem("CurrentSeller"))) {
+  window.location.href = "./pages/config.html";
 }
 
 if (!localStorage.getItem("index")) {
@@ -16,15 +21,19 @@ if (!localStorage.getItem("index")) {
   window.location.reload();
 }
 
+if(!balanceDayLocalStorage) {
+  localStorage.setItem("balanceDay", 0);
+  window.location.reload();
+}
+
+balanceDayElement.innerHTML = balanceDay;
+
+
 const indexLocalStorage = Number(localStorage.getItem("index"));
 let index = indexLocalStorage;
 
 if (Number(localStorage.getItem("index")) > 1) {
-
   for (let i = 0; i < index - 1; i++) {
-    let productSold = JSON.parse(localStorage.getItem(`productSold${i}`))
-    console.log(productSold)
-
     const row = document.createElement("tr");
     const td1 = document.createElement("td");
     const td2 = document.createElement("td");
@@ -32,9 +41,11 @@ if (Number(localStorage.getItem("index")) > 1) {
     const td4 = document.createElement("td");
     const td5 = document.createElement("td");
 
+    let productSold = JSON.parse(localStorage.getItem(`productSold${i}`));
+
     td1.innerHTML = productSold.name;
     td2.innerHTML = productSold.payment;
-    td3.innerHTML = productSold.value
+    td3.innerHTML = productSold.value;
     td4.innerHTML = productSold.seller;
     td5.innerHTML = productSold.time;
 
@@ -51,6 +62,7 @@ if (Number(localStorage.getItem("index")) > 1) {
 createBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
+  let value;
   const date = new Date().toLocaleTimeString();
   const row = document.createElement("tr");
 
@@ -60,11 +72,34 @@ createBtn.addEventListener("click", (e) => {
   const td4 = document.createElement("td");
   const td5 = document.createElement("td");
 
+  if (type.value === "Não") {
+    if (productSelect.value === "Óleo") {
+      value = "30.90";
+    } else {
+      value = "25.00";
+    }
+  } else {
+    if (productSelect.value === "Óleo") {
+      value = "26.30";
+    } else {
+      value = "19.99";
+    }
+  }
+
   td1.innerHTML = productSelect.value;
   td2.innerHTML = payment.value;
-  td3.innerHTML = productSelect.value === "Óleo" ? "39.90" : "N/A";
+  td3.innerHTML = value;
   td4.innerHTML = JSON.parse(localStorage.getItem("CurrentSeller")).name;
   td5.innerHTML = date;
+
+  td1.setAttribute("title", productSelect.value);
+  td2.setAttribute("title", payment.value);
+  td3.setAttribute("title", value);
+  td4.setAttribute(
+    "title",
+    JSON.parse(localStorage.getItem("CurrentSeller")).name
+  );
+  td5.setAttribute("title", date);
 
   row.appendChild(td1);
   row.appendChild(td2);
@@ -77,7 +112,7 @@ createBtn.addEventListener("click", (e) => {
   const newProductSold = {
     name: productSelect.value,
     payment: payment.value,
-    value: productSelect.value === "Óleo" ? "39.90" : "N/A",
+    value: value,
     seller: JSON.parse(localStorage.getItem("CurrentSeller")).name,
     time: date,
   };
@@ -87,6 +122,24 @@ createBtn.addEventListener("click", (e) => {
     JSON.stringify(newProductSold)
   );
 
+  balanceDay = (Number(balanceDay) + Number(value)).toFixed(2);
+
+  localStorage.setItem("balanceDay", balanceDay);
+
+  balanceDayElement.innerHTML = balanceDay;
   index++;
   localStorage.setItem("index", index);
+});
+
+// Menu
+menuBtn.addEventListener("click", () => {
+  if ((asideMenu.style.display = "none")) {
+    asideMenu.style.display = "block";
+  } else {
+    asideMenu.style.display = "none";
+  }
+});
+
+closeMenuBtn.addEventListener("click", () => {
+  asideMenu.style.display = "none";
 });

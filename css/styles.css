@@ -31,20 +31,24 @@ body {
 */
 
 .header {
+  position: sticky;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
   width: 100%;
   height: 4.2rem;
+  background-color: #fff;
   border-bottom: 2px solid #DdDdDd;
 
 }
 
 .logo p{
-    white-space: nowrap;
     font-size: 19pt;
     color: #ab8ab9;
+    white-space: nowrap;
 }
 
 .logo p span {
@@ -53,11 +57,24 @@ body {
 
 .navbar {
   display: flex;
+  align-items: center;
   gap: 0.6rem;
+}
+
+.navbar li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar a {
   color: #5a5a5a;
+}
+
+#menu {
+  display: none;
+  width: 1.2rem;
+  cursor: pointer;
 }
 
 /* 
@@ -133,12 +150,16 @@ table {
   width: 100%;
   height: 600px;
   border-collapse: collapse;
+
 }
 
 thead th,
 tbody td {
   padding: 10px;
   text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 tbody td:hover{
@@ -154,6 +175,9 @@ thead th {
   font-weight: bold;
   border: 2px solid #dddddd;
   border-bottom: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 tbody {
@@ -171,4 +195,75 @@ tbody tr {
 
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+/*
+===============================
+            Menu
+===============================
+*/
+
+.asideMenu {
+  display: none;
+  width: 16rem;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  animation: menuOpen .3s forwards ease-in-out;
+  background-color: #f8f8f8;
+}
+
+.closeMenuBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  font-size: 17pt;
+  background-color: transparent;
+}
+
+.asideMenu ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: .4rem;
+  margin-top: 2.8rem;
+}
+
+
+.asideMenu ul li {
+  width: 100%;
+  padding: 1rem .4rem;
+  border-bottom: 2px solid #DdDdDd;
+}
+
+.asideMenu ul li a {
+  width: 100%;
+  color: #000;
+}
+
+@keyframes menuOpen {
+  0% {
+    transform: translateX(100%);
+  }
+}
+
+
+/*
+===============================
+            Media
+===============================
+*/
+
+
+@media (max-width: 380px){
+
+  .navbar li:not(.menu) {
+    display: none;
+  }
+
+  .navbar #menu {
+    display: block;
+  }
 }
