@@ -80,7 +80,7 @@ createBtn.addEventListener("click", (e) => {
     }
   } else {
     if (productSelect.value === "Óleo") {
-      value = "26.30";
+      value = "26.99";
     } else {
       value = "19.99";
     }
