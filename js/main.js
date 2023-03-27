@@ -137,7 +137,7 @@ kitCreate.addEventListener("click", (e) => {
   const newProductSold = {
     name: kitSelect.value,
     payment: kitPayment.value,
-    value: kitSelect.value === "1 Óleo + 1 Esfoliante " ? "49.99" : "70.00",
+    value: kitSelect.value === "1 Óleo + 1 Esfoliante" ? "49.99" : "70.00",
     seller: JSON.parse(localStorage.getItem("CurrentSeller")).name,
     time: date,
   };
@@ -149,7 +149,7 @@ kitCreate.addEventListener("click", (e) => {
 
   balanceDay = (
     Number(balanceDay) +
-    Number(kitSelect.value === "1 Óleo + 1 Esfoliante " ? "49.99" : "70.00")
+    Number(kitSelect.value === "1 Óleo + 1 Esfoliante" ? "49.99" : "70.00")
   ).toFixed(2);
 
   localStorage.setItem("balanceDay", balanceDay);
